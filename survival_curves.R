@@ -21,34 +21,18 @@ read_km_file <- function(dir, outcome_id) {
            Surv = `Cohort 1: Survival Probability`,
            Lower = `Cohort 1: Survival Probability 95 % CI Lower`,
            Upper = `Cohort 1: Survival Probability 95 % CI Upper`) %>%
-g6uxy7-codex/create-survival-curves-for-outcomes-4-5-6
     mutate(Cohort = "Concussion") %>%
     tidyr::fill(Surv, Lower, Upper, .direction = "down")
-
-    4jqea5-codex/create-survival-curves-for-outcomes-4-5-6
-    mutate(Cohort = "Concussion") %>%
-    tidyr::fill(Surv, Lower, Upper, .direction = "down")
-
-    mutate(Cohort = "Concussion")
-   main
- main
 
   cohort2 <- df %>%
     select(Time = `Time (Days)`,
            Surv = `Cohort 2: Survival Probability`,
            Lower = `Cohort 2: Survival Probability 95 % CI Lower`,
            Upper = `Cohort 2: Survival Probability 95 % CI Upper`) %>%
-g6uxy7-codex/create-survival-curves-for-outcomes-4-5-6
+
     mutate(Cohort = "Control") %>%
     tidyr::fill(Surv, Lower, Upper, .direction = "down")
 
-    4jqea5-codex/create-survival-curves-for-outcomes-4-5-6
-    mutate(Cohort = "Control") %>%
-    tidyr::fill(Surv, Lower, Upper, .direction = "down")
-
-    mutate(Cohort = "Control")
-  main
- main
 
   bind_rows(cohort1, cohort2) %>%
     mutate(Exposure = exposure_label,
@@ -73,22 +57,10 @@ plot_survival <- function(df, outcome_label) {
   ggplot(df, aes(x = Time / 365, y = Surv,
                  color = Exposure, linetype = Cohort)) +
     geom_step(size = 0.8) +
-g6uxy7-codex/create-survival-curves-for-outcomes-4-5-6
+
     scale_linetype_manual(values = c(Concussion = "solid",
                                       Control = "dotdash")) +
 
-  4jqea5-codex/create-survival-curves-for-outcomes-4-5-6
-    scale_linetype_manual(values = c(Concussion = "solid",
-                                      Control = "dotdash")) +
-
-  csbjzh-codex/create-survival-curves-for-outcomes-4-5-6
-    scale_linetype_manual(values = c(Concussion = "solid",
-                                      Control = "longdash")) +
-
-main
-
-  main
- main
     scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
     labs(
       title = outcome_label,

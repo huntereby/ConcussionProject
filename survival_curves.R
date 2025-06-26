@@ -23,6 +23,7 @@ read_km_file <- function(dir, outcome_id) {
            Upper = `Cohort 1: Survival Probability 95 % CI Upper`) %>%
     mutate(Cohort = "Concussion") %>%
 
+
     tidyr::fill(Surv, Lower, Upper, .direction = "downup") %>%
     mutate(
       Risk = 1 - Surv,
@@ -31,11 +32,13 @@ read_km_file <- function(dir, outcome_id) {
     )
 
 
+
   cohort2 <- df %>%
     select(Time = `Time (Days)`,
            Surv = `Cohort 2: Survival Probability`,
            Lower = `Cohort 2: Survival Probability 95 % CI Lower`,
            Upper = `Cohort 2: Survival Probability 95 % CI Upper`) %>%
+
 
     mutate(Cohort = "Control") %>%
     tidyr::fill(Surv, Lower, Upper, .direction = "downup") %>%
@@ -71,13 +74,13 @@ plot_survival <- function(df, outcome_label) {
                  color = Exposure, linetype = Cohort)) +
     geom_step(size = 0.8) +
     scale_linetype_manual(values = c(Concussion = "solid",
-                                      Control = "dotdash")) +
 
-    scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+                                      Control = "longdash")) +
+    scale_y_continuous(labels = scales::percent_format(accuracy = 1),
+                       limits = c(0, 0.30)) +
     labs(
       title = outcome_label,
       x = "Time (years)",
-
       y = "Cumulative Risk",
 
       color = "Exposure",

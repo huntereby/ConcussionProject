@@ -29,8 +29,10 @@ read_km_file <- function(dir, outcome_id) {
            Surv = `Cohort 2: Survival Probability`,
            Lower = `Cohort 2: Survival Probability 95 % CI Lower`,
            Upper = `Cohort 2: Survival Probability 95 % CI Upper`) %>%
+
     mutate(Cohort = "Control") %>%
     tidyr::fill(Surv, Lower, Upper, .direction = "down")
+
 
   bind_rows(cohort1, cohort2) %>%
     mutate(Exposure = exposure_label,
@@ -55,8 +57,10 @@ plot_survival <- function(df, outcome_label) {
   ggplot(df, aes(x = Time / 365, y = Surv,
                  color = Exposure, linetype = Cohort)) +
     geom_step(size = 0.8) +
+
     scale_linetype_manual(values = c(Concussion = "solid",
                                       Control = "dotdash")) +
+
     scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
     labs(
       title = outcome_label,

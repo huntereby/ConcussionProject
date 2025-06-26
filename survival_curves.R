@@ -22,7 +22,12 @@ read_km_file <- function(dir, outcome_id) {
            Lower = `Cohort 1: Survival Probability 95 % CI Lower`,
            Upper = `Cohort 1: Survival Probability 95 % CI Upper`) %>%
     mutate(Cohort = "Concussion") %>%
-    tidyr::fill(Surv, Lower, Upper, .direction = "down")
+    tidyr::fill(Surv, Lower, Upper, .direction = "downup") %>%
+    mutate(
+      Risk = 1 - Surv,
+      LowerRisk = 1 - Upper,
+      UpperRisk = 1 - Lower
+    )
 
   cohort2 <- df %>%
     select(Time = `Time (Days)`,
@@ -30,7 +35,12 @@ read_km_file <- function(dir, outcome_id) {
            Lower = `Cohort 2: Survival Probability 95 % CI Lower`,
            Upper = `Cohort 2: Survival Probability 95 % CI Upper`) %>%
     mutate(Cohort = "Control") %>%
-    tidyr::fill(Surv, Lower, Upper, .direction = "down")
+    tidyr::fill(Surv, Lower, Upper, .direction = "downup") %>%
+    mutate(
+      Risk = 1 - Surv,
+      LowerRisk = 1 - Upper,
+      UpperRisk = 1 - Lower
+    )
 
   bind_rows(cohort1, cohort2) %>%
     mutate(Exposure = exposure_label,
@@ -52,7 +62,7 @@ km_data <- map_dfr(concuss_dirs, function(d) {
 
 # Function to create a survival curve plot for a given outcome
 plot_survival <- function(df, outcome_label) {
-  ggplot(df, aes(x = Time / 365, y = Surv,
+  ggplot(df, aes(x = Time / 365, y = Risk,
                  color = Exposure, linetype = Cohort)) +
     geom_step(size = 0.8) +
     scale_linetype_manual(values = c(Concussion = "solid",
@@ -61,7 +71,7 @@ plot_survival <- function(df, outcome_label) {
     labs(
       title = outcome_label,
       x = "Time (years)",
-      y = "Survival Probability",
+      y = "Cumulative Risk",
       color = "Exposure",
       linetype = "Cohort"
     ) +

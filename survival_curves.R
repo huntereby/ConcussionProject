@@ -53,6 +53,11 @@ plot_survival <- function(df, outcome_label) {
   ggplot(df, aes(x = Time / 365, y = Surv,
                  color = Exposure, linetype = Cohort)) +
     geom_step(size = 0.8) +
+  csbjzh-codex/create-survival-curves-for-outcomes-4-5-6
+    scale_linetype_manual(values = c(Concussion = "solid",
+                                      Control = "longdash")) +
+=======
+main
     scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
     labs(
       title = outcome_label,

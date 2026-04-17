@@ -69,30 +69,69 @@ km_data <- map_dfr(concuss_dirs, function(d) {
 
 # Function to create a survival curve plot for a given outcome
 plot_survival <- function(df, outcome_label) {
-
-  ggplot(df, aes(x = Time / 365, y = Risk,
-                 color = Exposure, linetype = Cohort)) +
-    geom_step(size = 0.8) +
-    scale_linetype_manual(values = c(Concussion = "solid",
-
-                                      Control = "longdash")) +
-    scale_y_continuous(labels = scales::percent_format(accuracy = 1),
-                       limits = c(0, 0.30)) +
+  library(ggplot2)
+  library(gridExtra)
+  library(grid)
+  library(scales)
+  
+  pval <- unique(df$pval)
+  
+  # Main plot
+  main <- ggplot(df, aes(x = Time / 365, y = Risk,
+                         color = Exposure, linetype = Cohort)) +
+    geom_ribbon(aes(ymin = LowerRisk, ymax = UpperRisk, fill = Exposure),
+                alpha = 0.15, colour = NA, show.legend = FALSE) +
+    geom_step(size = 1) +
+    scale_color_brewer(palette = "Dark2") +
+    scale_fill_brewer(palette = "Dark2") +
+    scale_linetype_manual(values = c(Concussion = "solid", Control = "dashed")) +
+    scale_y_continuous(
+      labels = percent_format(accuracy = 1),
+      limits = c(0, 0.30),
+      expand = expansion(mult = c(0, 0.05))
+    ) +
+    scale_x_continuous(
+      breaks = seq(0, max(df$Time) / 365, by = 1),
+      expand = expansion(mult = c(0, 0))
+    ) +
     labs(
       title = outcome_label,
       x = "Time (years)",
-      y = "Cumulative Risk",
-
+      y = "Cumulative Incidence",
       color = "Exposure",
       linetype = "Cohort"
     ) +
-    theme_minimal()
+    theme_minimal(base_size = 11) +
+    theme(
+      plot.title = element_text(face = "bold", size = 13, hjust = 0.5),
+      axis.title = element_text(size = 11),
+      legend.position = "right",
+      panel.grid.minor = element_blank(),
+      panel.grid.major = element_line(size = 0.3, color = "gray85")
+    ) +
+    annotate("text",
+             x = max(df$Time) / 365,
+             y = 0.28,
+             hjust = 1,
+             label = paste0("Log-rank p = ", signif(pval, 3)),
+             size = 3.2,
+             fontface = "italic"
+    )
+  
+  # Optional: Risk table (custom helper function assumed to be defined elsewhere)
+  tbl <- calc_risk_table(df) %>%
+    arrange(Exposure, Cohort)
+  tbl_grob <- tableGrob(tbl, rows = NULL,
+                        theme = ttheme_minimal(base_size = 8))
+  
+  gridExtra::arrangeGrob(main, tbl_grob, heights = c(4.5, 1))
 }
+
 
 # Generate and save a plot for each outcome
 for (lbl in unique(km_data$Outcome)) {
   df <- km_data %>% filter(Outcome == lbl)
   p <- plot_survival(df, lbl)
-  ggsave(sprintf("survival_%s.png", gsub(" ", "_", tolower(lbl))),
+  ggsave(sprintf("survival_%sv4.svg", gsub(" ", "_", tolower(lbl))),
          plot = p, width = 7, height = 5, dpi = 300)
 }

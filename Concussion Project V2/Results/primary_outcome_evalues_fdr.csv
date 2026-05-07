@@ -1,0 +1,13 @@
+comparison,outcome,rr_ci,e_value_rr,e_value_ci_limit,raw_p,fdr_p,fdr_significant_05
+CX1_vs_CTLFX,Mood disorders,"2.290 (2.192, 2.393)",4.01,3.81,<0.001,<0.001,TRUE
+CX1_vs_CTLFX,Anxiety disorders,"2.277 (2.203, 2.352)",3.98,3.83,<0.001,<0.001,TRUE
+CX1_vs_CTLFX,ADHD,"2.597 (2.486, 2.713)",4.63,4.41,<0.001,<0.001,TRUE
+CX1_vs_CTLFX,Generalized SUD,"1.717 (1.610, 1.832)",2.83,2.6,<0.001,<0.001,TRUE
+CX2_vs_CX1,Mood disorders,"1.141 (1.090, 1.193)",1.54,1.4,<0.001,<0.001,TRUE
+CX2_vs_CX1,Anxiety disorders,"1.183 (1.142, 1.226)",1.65,1.55,<0.001,<0.001,TRUE
+CX2_vs_CX1,ADHD,"1.144 (1.087, 1.203)",1.55,1.39,<0.001,<0.001,TRUE
+CX2_vs_CX1,Generalized SUD,"0.921 (0.854, 0.993)",1.39,1.09,0.033,0.049,TRUE
+CX3_vs_CX2,Mood disorders,"1.079 (1.011, 1.152)",1.37,1.11,0.020,0.035,TRUE
+CX3_vs_CX2,Anxiety disorders,"1.063 (1.011, 1.118)",1.32,1.11,0.014,0.025,TRUE
+CX3_vs_CX2,ADHD,"1.053 (0.975, 1.136)",1.29,1,0.171,0.241,FALSE
+CX3_vs_CX2,Generalized SUD,"0.974 (0.867, 1.095)",1.19,1,0.658,0.777,FALSE

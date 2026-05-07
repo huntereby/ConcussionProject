@@ -1,0 +1,24 @@
+E-value and multiple-testing sensitivity analysis
+=================================================
+
+Methods:
+- E-values were computed from the reported post-matching relative risks using the VanderWeele-Ding risk-ratio formula.
+- For associations below the null (RR < 1), the RR scale was inverted before computing the E-value.
+- The CI-limit E-value uses the confidence-limit closest to the null; if the CI includes 1.0, the CI-limit E-value is 1.00.
+- Benjamini-Hochberg FDR correction was applied globally across all 24 outcome-comparison log-rank p-values.
+
+Key sparse-event flag:
+- Opioid-related CX3 vs CX2 sparse-event flag: 30 vs 15 events; RR=2.000 (1.077, 3.715); raw log-rank p=0.025; BH-FDR p=0.040; FDR significant=yes. Interpret as exploratory/fragile if q>=0.05.
+
+Cells not significant after BH-FDR q<0.05:
+- CX2_vs_CX1 | Unspecified psychosis | raw p=0.356 | BH-FDR p=0.475 | RR=0.857 (0.617, 1.190)
+- CX2_vs_CX1 | Alcohol-related | raw p=0.816 | BH-FDR p=0.891 | RR=1.021 (0.854, 1.220)
+- CX2_vs_CX1 | Cannabis-related | raw p=0.594 | BH-FDR p=0.750 | RR=1.032 (0.920, 1.157)
+- CX3_vs_CX2 | ADHD | raw p=0.171 | BH-FDR p=0.241 | RR=1.053 (0.975, 1.136)
+- CX3_vs_CX2 | Unspecified psychosis | raw p=0.680 | BH-FDR p=0.777 | RR=1.120 (0.654, 1.919)
+- CX3_vs_CX2 | Generalized SUD | raw p=0.658 | BH-FDR p=0.777 | RR=0.974 (0.867, 1.095)
+- CX3_vs_CX2 | Alcohol-related | raw p=0.883 | BH-FDR p=0.921 | RR=0.982 (0.753, 1.280)
+- CX3_vs_CX2 | Cannabis-related | raw p=0.928 | BH-FDR p=0.928 | RR=1.008 (0.848, 1.199)
+
+Suggested manuscript language:
+We quantified sensitivity to unmeasured confounding using E-values for the observed risk ratios and their confidence limits closest to the null. We additionally controlled the false-discovery rate across the 24 outcome-comparison tests using the Benjamini-Hochberg procedure. The sparse opioid-related CX3 vs CX2 result should be interpreted cautiously if it does not remain significant after FDR adjustment.

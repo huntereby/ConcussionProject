@@ -1,0 +1,25 @@
+Comparison,Outcome,"Events, exposed","Events, reference",RR (95% CI),Raw p,BH-FDR p,FDR q<0.05,E-value (estimate; CI limit)
+"CX1 vs CTL-FX (n=68,375 per arm)",Mood disorders,6236,2723,"2.290 (2.192, 2.393)",<0.001,<0.001,Yes,4.01; CI limit 3.81
+"CX1 vs CTL-FX (n=68,375 per arm)",Anxiety disorders,10686,4694,"2.277 (2.203, 2.352)",<0.001,<0.001,Yes,3.98; CI limit 3.83
+"CX1 vs CTL-FX (n=68,375 per arm)",ADHD,6819,2626,"2.597 (2.486, 2.713)",<0.001,<0.001,Yes,4.63; CI limit 4.41
+"CX1 vs CTL-FX (n=68,375 per arm)",Unspecified psychosis,152,88,"1.727 (1.329, 2.245)",<0.001,<0.001,Yes,2.85; CI limit 1.99
+"CX1 vs CTL-FX (n=68,375 per arm)",Generalized SUD,2440,1421,"1.717 (1.610, 1.832)",<0.001,<0.001,Yes,2.83; CI limit 2.60
+"CX1 vs CTL-FX (n=68,375 per arm)",Alcohol-related,446,281,"1.587 (1.368, 1.842)",<0.001,<0.001,Yes,2.55; CI limit 2.08
+"CX1 vs CTL-FX (n=68,375 per arm)",Cannabis-related,1102,569,"1.937 (1.751, 2.142)",<0.001,<0.001,Yes,3.28; CI limit 2.90
+"CX1 vs CTL-FX (n=68,375 per arm)",Opioid-related,106,61,"1.738 (1.268, 2.381)",<0.001,<0.001,Yes,2.87; CI limit 1.85
+"CX2 vs CX1 (n=22,547 per arm)",Mood disorders,3448,3023,"1.141 (1.090, 1.193)",<0.001,<0.001,Yes,1.54; CI limit 1.40
+"CX2 vs CX1 (n=22,547 per arm)",Anxiety disorders,5284,4466,"1.183 (1.142, 1.226)",<0.001,<0.001,Yes,1.65; CI limit 1.55
+"CX2 vs CX1 (n=22,547 per arm)",ADHD,2817,2463,"1.144 (1.087, 1.203)",<0.001,<0.001,Yes,1.55; CI limit 1.39
+"CX2 vs CX1 (n=22,547 per arm)",Unspecified psychosis,66,77,"0.857 (0.617, 1.190)",0.356,0.475,No,1.61; CI limit 1.00
+"CX2 vs CX1 (n=22,547 per arm)",Generalized SUD,1224,1329,"0.921 (0.854, 0.993)",0.033,0.049,Yes,1.39; CI limit 1.09
+"CX2 vs CX1 (n=22,547 per arm)",Alcohol-related,242,237,"1.021 (0.854, 1.220)",0.816,0.891,No,1.17; CI limit 1.00
+"CX2 vs CX1 (n=22,547 per arm)",Cannabis-related,580,562,"1.032 (0.920, 1.157)",0.594,0.750,No,1.21; CI limit 1.00
+"CX2 vs CX1 (n=22,547 per arm)",Opioid-related,39,79,"0.494 (0.337, 0.724)",<0.001,<0.001,Yes,3.47; CI limit 2.11
+"CX3 vs CX2 (n=8,911 per arm)",Mood disorders,1559,1445,"1.079 (1.011, 1.152)",0.020,0.035,Yes,1.37; CI limit 1.11
+"CX3 vs CX2 (n=8,911 per arm)",Anxiety disorders,2332,2194,"1.063 (1.011, 1.118)",0.014,0.025,Yes,1.32; CI limit 1.11
+"CX3 vs CX2 (n=8,911 per arm)",ADHD,1176,1117,"1.053 (0.975, 1.136)",0.171,0.241,No,1.29; CI limit 1.00
+"CX3 vs CX2 (n=8,911 per arm)",Unspecified psychosis,28,25,"1.120 (0.654, 1.919)",0.680,0.777,No,1.49; CI limit 1.00
+"CX3 vs CX2 (n=8,911 per arm)",Generalized SUD,523,537,"0.974 (0.867, 1.095)",0.658,0.777,No,1.19; CI limit 1.00
+"CX3 vs CX2 (n=8,911 per arm)",Alcohol-related,107,109,"0.982 (0.753, 1.280)",0.883,0.921,No,1.16; CI limit 1.00
+"CX3 vs CX2 (n=8,911 per arm)",Cannabis-related,250,248,"1.008 (0.848, 1.199)",0.928,0.928,No,1.10; CI limit 1.00
+"CX3 vs CX2 (n=8,911 per arm)",Opioid-related,30,15,"2.000 (1.077, 3.715)",0.025,0.040,Yes,3.41; CI limit 1.36

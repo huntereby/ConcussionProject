@@ -1,0 +1,13 @@
+"Comparison","Match_Status","Cohort","Mean_Follow_up_Days","SD_Days","Median_Follow_up_Days","IQR_Days"
+"CX1 vs CTL-FX","Before matching","CX1",1824.9,1.6,1825,0
+"CX1 vs CTL-FX","Before matching","CTL-FX",1824.9,1.2,1825,0
+"CX1 vs CTL-FX","After matching","CX1",1824.9,1.5,1825,0
+"CX1 vs CTL-FX","After matching","CTL-FX",1824.9,1.4,1825,0
+"CX2 vs CX1","Before matching","CX2",1824.9,1.1,1825,0
+"CX2 vs CX1","Before matching","CX1",1824.9,1.5,1825,0
+"CX2 vs CX1","After matching","CX2",1824.9,1.1,1825,0
+"CX2 vs CX1","After matching","CX1",1824.9,1.5,1825,0
+"CX3 vs CX2","Before matching","CX3",1825,0.6,1825,0
+"CX3 vs CX2","Before matching","CX2",1824.9,1.1,1825,0
+"CX3 vs CX2","After matching","CX3",1825,0.6,1825,0
+"CX3 vs CX2","After matching","CX2",1824.9,1.1,1825,0
